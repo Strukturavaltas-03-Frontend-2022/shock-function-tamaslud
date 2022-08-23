@@ -30,8 +30,8 @@ function add(num1, num2) {
  * @param {string} message - a szöveg amit vissza kell adni.
  * @returns {string} - a kapott üzenet.
  */
-function logTheString(message) {
-    return;
+function logTheString(message = String) {
+    return message;
 }
 
 /**
@@ -42,8 +42,8 @@ function logTheString(message) {
  * @returns {string} `Hello <name>!` kifejezés, <name> = a kapott name.
  * @desc Példa a név beszúrására: `Howdy ${userName}!`
  */
-function getGreeting(name) {
-    return;
+function getGreeting(name = String) {
+    return `Hello ${name}!`;
 }
 
 /**
@@ -53,9 +53,9 @@ function getGreeting(name) {
  * @param {string} name A felhasználó neve.
  * @returns {string} `Hello <name>!` kifejezés, <name> = name nagy kezdőbetűvel.
  */
-function getTitleGreeting(name) {
+function getTitleGreeting(name = '') {
     const titleCaseName = name[0].toUpperCase() + name.slice(1);
-    return;
+    return `Hello ${titleCaseName}!`;
 }
 
 /**
@@ -65,8 +65,9 @@ function getTitleGreeting(name) {
  * @param {string} productName A termék neve.
  * @returns {string} `Product: <name>!`, <name> = productName nagy kezdőbetűvel.
  */
-function getProductDetails(productName) {
-    // 
+function getProductDetails(productName = String) {
+    return `Product: ${productName.slice(0,1).toUpperCase()}${productName.slice(1)}!`
+    
 }
 
 /**

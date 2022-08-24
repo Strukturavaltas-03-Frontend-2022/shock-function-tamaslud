@@ -149,11 +149,12 @@ const getProductDescrition = product => {
  */
 
 const getBio = (member) => {
-    const memberName = member.name.slice(0,1).toUpperCase() + member.name.slice(1);
-    return `${memberName}, ${member.age} years old, live in: ${member.city}.`;
+    const name = member.name.slice(0,1).toUpperCase() + member.name.slice(1);
+    const age = member.age;
+    const city = member.city;
+    return `${name}, ${age} years old, live in: ${city}.`;
 };
 
-export default getBio;
 
 
 /**
@@ -169,7 +170,10 @@ export default getBio;
  * <city> = member városa
  */
 const getMemberDesc = (member = {name: 'jimmy', birthYear: 2000, city: 'SF'}) => {
+    const name = member.name.slice(0,1).toUpperCase() + member.name.slice(1);
     const age = new Date().getFullYear() - member.birthYear;
+    const city = member.city;
+    return `${name}, ${age} years old, live in: ${city}.`
 }
 
 /**
@@ -187,6 +191,12 @@ const getMemberDesc = (member = {name: 'jimmy', birthYear: 2000, city: 'SF'}) =>
  * @desc EXPORTÁLNI KELL A FÜGGVÉNYT!
  */
 
+const getCarDetails = (car={manufacturer: 'ford', year: 2010, type: 'fiesta'}) => {
+    const man = car.manufacturer.slice(0,1).toUpperCase() + car.manufacturer.slice(1);
+    const age = new Date().getFullYear() - car.year;
+    const type = car.type.slice(0,1).toUpperCase() + car.type.slice(1);
+    return `${man}, ${age} years old, type: ${type}.`;
+}
 
 export {
     logTheString,
@@ -198,7 +208,7 @@ export {
     getSellPrice,
     getActionPrice,
     getProductDescrition,
-
+    getBio,
     getMemberDesc,
-    
+    getCarDetails,
 }

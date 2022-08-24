@@ -30,7 +30,7 @@ function add(num1, num2) {
  * @param {string} message - a szöveg amit vissza kell adni.
  * @returns {string} - a kapott üzenet.
  */
-function logTheString(message = String) {
+function logTheString(message = '') {
     return message;
 }
 
@@ -42,7 +42,7 @@ function logTheString(message = String) {
  * @returns {string} `Hello <name>!` kifejezés, <name> = a kapott name.
  * @desc Példa a név beszúrására: `Howdy ${userName}!`
  */
-function getGreeting(name = String) {
+function getGreeting(name = '') {
     return `Hello ${name}!`;
 }
 
@@ -65,9 +65,8 @@ function getTitleGreeting(name = '') {
  * @param {string} productName A termék neve.
  * @returns {string} `Product: <name>!`, <name> = productName nagy kezdőbetűvel.
  */
-function getProductDetails(productName = String) {
-    return `Product: ${productName.slice(0,1).toUpperCase()}${productName.slice(1)}!`
-    
+function getProductDetails(productName = '') {
+    return `Product: ${productName.slice(0, 1).toUpperCase()}${productName.slice(1)}!`
 }
 
 /**
@@ -77,9 +76,9 @@ function getProductDetails(productName = String) {
  * @param {number} price Egy termék ára.
  * @returns {number} a price 1.27-szerese.
  */
-const getBruttoPrice = function(price) {
+const getBruttoPrice = function(price = 0) {
     const bruttoPrice = price * 1.27;
-    return;
+    return bruttoPrice;
 }
 
 /**
@@ -90,9 +89,9 @@ const getBruttoPrice = function(price) {
  * @param {number} price Egy termék ára.
  * @returns {number} a price 1.27-szerese, egészre kerekítve.
  */
-const getRoundedBruttoPrice = function(price) {
+const getRoundedBruttoPrice = function(price = 0) {
     const bruttoPrice = Math.round(price * 1.27);
-    return;
+    return bruttoPrice;
 }
 
 /**
@@ -103,8 +102,8 @@ const getRoundedBruttoPrice = function(price) {
  * @param {number} price Egy termék ára.
  * @returns {number} a price 1.35-szöröse, egészre kerekítve.
  */
-const getSellPrice = function(price) {
-    // 
+const getSellPrice = function(price = 0) {
+    return Math.round(price*1.35)
 }
 
 /**
@@ -115,8 +114,8 @@ const getSellPrice = function(price) {
  * @param {number} price Egy termék ára.
  * @returns {number} a price 1.35-szörösének a 0.9-szerese, egészre kerekítve.
  */
-const getActionPrice = function(price) {
-    // 
+const getActionPrice = function(price = 0) {
+    return Math.round((price*1.35)*0.9)
 }
 
 /**
@@ -130,7 +129,10 @@ const getActionPrice = function(price) {
  * <stock> = a product.stock
  */
 const getProductDescrition = product => {
-    // 
+    const productName = product.name.slice(0,1).toUpperCase() + product.name.slice(1);
+    const productBruttoPrice = Math.round(product.price*1.35);
+    const inStock = product.stock;
+    return `${productName}, \$${productBruttoPrice}, in stock: ${inStock}`;
 }
 
 /**
@@ -146,6 +148,12 @@ const getProductDescrition = product => {
  * @desc EXPORTÁLNI KELL A FÜGGVÉNYT!
  */
 
+const getBio = (member) => {
+    const memberName = member.name.slice(0,1).toUpperCase() + member.name.slice(1);
+    return `${memberName}, ${member.age} years old, live in: ${member.city}.`;
+};
+
+export default getBio;
 
 
 /**
